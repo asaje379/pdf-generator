@@ -1,0 +1,21 @@
+{
+  "name": "@asaje/pdf-generator",
+  "version": "1.0.1",
+  "main": "./dist/main.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.1.2",
+    "esbuild": "^0.17.18",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "puppeteer": "^20.1.2"
+  },
+  "scripts": {
+    "build": "tsc && esbuild src/main.ts --bundle --platform=node --packages=external --outdir=dist --minify"
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/main.d.ts"
+}
