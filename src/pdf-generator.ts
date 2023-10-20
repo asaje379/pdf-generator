@@ -7,10 +7,14 @@ export type PrintPdfOptions = PDFOptions;
 export interface PrintOptions {
   html: string;
   options?: PrintPdfOptions;
+  executablePath?: string;
 }
 
 export async function generatePdf(args: PrintOptions) {
-  const browser = await puppeteer.launch({ executablePath: executablePath() });
+  console.log('[executable-path]:', executablePath());
+  const browser = await puppeteer.launch({
+    executablePath: args.executablePath ?? executablePath(),
+  });
   const page = await browser.newPage();
 
   page.setContent(args.html, { waitUntil: 'domcontentloaded' });
